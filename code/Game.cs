@@ -1,10 +1,5 @@
-﻿
-using Sandbox;
-using Sandbox.UI.Construct;
-using System;
-using System.IO;
+﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 //
 // You don't need to put things in a namespace, but it doesn't hurt.
@@ -18,10 +13,14 @@ namespace Sandbox
 	/// You can use this to create things like HUDs and declare which player class
 	/// to use for spawned players.
 	/// </summary>
-	public partial class MyGame : Sandbox.Game
+	public partial class Timeless : Sandbox.Game
 	{
-		public MyGame()
+		public Timeless()
 		{
+			if ( IsClient )
+			{
+				HUD hud = new HUD();
+			}
 		}
 
 		/// <summary>
@@ -34,6 +33,7 @@ namespace Sandbox
 			// Create a pawn for this client to play with
 			var pawn = new Pawn();
 			client.Pawn = pawn;
+			client.Pawn.Health = 100;
 
 			// Get all of the spawnpoints
 			var spawnpoints = Entity.All.OfType<SpawnPoint>();
