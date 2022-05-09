@@ -8,9 +8,11 @@ namespace Sandbox
 		{
 			if ( !IsClient ) return;
 
-			RootPanel.StyleSheet.Load( "../Resources/styles/HUD.scss" );
+			RootPanel.StyleSheet.Load( "Resources/styles/HUD.scss" );
 
 			RootPanel.AddChild<Health>();
+			RootPanel.AddChild<Money>();
+			RootPanel.AddChild<Armor>();
 		}
 	}
 }

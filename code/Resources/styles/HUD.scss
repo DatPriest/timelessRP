@@ -2,3 +2,26 @@
     background-color:red;
     color: red;
 }
+
+.health {
+    width: 300px;
+    height: 20px;
+    color: white;
+    background-color: red;
+    position:absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.money {
+    color: green;
+}
+
+.armor {
+    width: 300px;
+    height: 20px;
+}
+
+.icon {
+    font-family: "Material Icons";
+}
