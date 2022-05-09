@@ -8,7 +8,8 @@ namespace Sandbox.UI
 
 		public Health()
 		{
-			Add.Label( "<3", "icon" );
+			Add.Label( "Health: ", "health" );
+			Add.Icon( "shield", "icon" );
 			Label = Add.Label( "100", "value" );
 		}
 
