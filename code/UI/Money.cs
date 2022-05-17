@@ -9,8 +9,10 @@ namespace Sandbox.UI
 
 		public Money()
 		{
-			Icon = Add.Icon( "", "icon" );
-			Label = Add.Label( "$", "value" );
+			Icon = Add.Icon( "💎", "icon icon-money" );
+			Label = Add.Label( "0", "money" );
+
+			Label.Style.Dirty();
 		}
 
 		public override void Tick()
