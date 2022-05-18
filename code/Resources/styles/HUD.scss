@@ -4,13 +4,13 @@
 }
 
 .health {
+    position: absolute;
     width: 300px;
     height: 20px;
     color: white;
     background-color: red;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 10%;
+    left: 100%;
     text-align: center;
 }
 
@@ -27,10 +27,6 @@
     bottom: 35px;
     left: -25px;
     text-align: center;
-}
-
-.box {
-
 }
 
 .icon {
