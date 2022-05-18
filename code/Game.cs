@@ -43,6 +43,25 @@ namespace Sandbox
 			var randomSpawnPoint = spawnpoints.OrderBy( x => Guid.NewGuid() ).FirstOrDefault();
 
 		}
+
+		/// <summary>
+		/// Called each tick.
+		/// Serverside: Called for each client every tick
+		/// Clientside: Called for each tick for local client. Can be called multiple times per tick.
+		/// </summary>
+		public override void Simulate( Client cl )
+		{
+			if ( !cl.Pawn.IsValid() ) return;
+
+			// Block Simulate from running clientside
+			// if we're not predictable.
+			if ( !cl.Pawn.IsAuthority ) return;
+
+			(cl.Pawn as TimelessPlayer).Money++;
+			cl.Pawn.Simulate( cl );
+
+		}
+
 	}
 
 }

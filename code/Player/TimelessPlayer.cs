@@ -8,6 +8,9 @@
 		public float Armor { get; set; } = 0;
 
 		[Net]
+		public float Money { get; set; } = 150;
+
+		[Net]
 		public float MaxHealth { get; set; } = 100;
 
 		public bool SupressPickupNotices { get; private set; }
@@ -70,6 +73,28 @@
 			if ( timeSinceDropped < 1 ) return;
 
 			base.StartTouch( other );
+		}
+
+		public override void Simulate( Client cl )
+		{
+			base.Simulate( cl );
+
+			if ( LifeState != LifeState.Alive )
+				return;
+
+			TickPlayerUse();
+
+			if ( Input.Pressed( InputButton.View ) )
+			{
+				if ( CameraMode is ThirdPersonCamera )
+				{
+					CameraMode = new FirstPersonCamera();
+				}
+				else
+				{
+					CameraMode = new ThirdPersonCamera();
+				}
+			}
 		}
 
 	}
